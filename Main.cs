@@ -75,6 +75,11 @@ namespace ManualLoading
                     vic_go.AddComponent<Util.AlreadyConverted>();
                     ManualLoadingHandler mlh = vic_go.AddComponent<ManualLoadingHandler>();
                     mlh.feed = feed;
+
+                    if (vic._friendlyName.Contains("BMP-1")) {
+                        feed.ClipReloadStages[0].StageAudio = feed.RoundCycleStages[1].StageAudio;
+                        feed.RoundCycleStages[1].StageAudio = null;
+                    }
                 }
             }
 
